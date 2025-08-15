@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Minimal Café</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f7f3ef;
+        color: #4b3832;
+    }
+    /* Navbar */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(247, 243, 239, 0.9);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        box-sizing: border-box;
+        box-shadow: none;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        max-width: 100%;
+    }
+    nav.scrolled {
+        background: #4b3832;
+        color: #fff;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    nav a {
+        color: inherit;
+        text-decoration: none;
+        margin: 0 0.8rem;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav a:hover {
+        color: #c4a484;
+    }
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+    /* Sections */
+    section {
+        padding: 100px 20px;
+        max-width: 1000px;
+        margin: auto;
+    }
+    h1, h2 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    /* Home */
+    #home {
+        background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 0 20px;
+    }
+    #home h1, #home p {
+        color: #4b3832; /* coffee color text */
+        text-shadow: none;
+    }
+    #home h1 {
+        font-size: 3rem;
+    }
+    #home p {
+        font-size: 1.2rem;
+    }
+    /* Menu */
+    .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .menu-item {
+        background: #fff;
+        border-radius: 8px;
+        padding: 1rem;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    .menu-item:hover {
+        transform: translateY(-5px);
+    }
+    .menu-item img{
+        width: 165px;
+    }
+    .price {
+        color: #c4a484;
+        font-weight: bold;
+        margin: 0.5rem 0;
+    }
+    button {
+        background: #4b3832;
+        color: #fff;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+    button:hover {
+        background: #c4a484;
+        color: #4b3832;
+    }
+    /* Contact */
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 400px;
+        margin: auto;
+    }
+    input, textarea {
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: inherit;
+    }
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 1rem;
+        background: #4b3832;
+        color: white;
+    }
+    /* Responsive Navbar for smaller devices */
+    @media (max-width: 600px) {
+        nav {
+            flex-direction: column;
+            padding: 0.8rem;
+        }
+        nav div {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        nav a {
+            margin: 0.5rem;
+        }
+        #home h1 {
+            font-size: 2.2rem;
+        }
+        #home p {
+            font-size: 1rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">Minimal Café</div>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<section id="home">
+    <h1>Welcome to Minimal Café</h1>
+    <p>Your cozy spot for the perfect cup of coffee.</p>
+</section>
+
+<section id="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <img src="americano.jpg" alt="americano">
+            <h3>Espresso</h3>
+            <p class="price">$3.00</p>
+            <button onclick="purchase('Espresso')">Purchase</button>
+        </div>
+        <div class="menu-item">
+            <img src="cappu.jpg" alt="Cappuccino" style="width: 230px; height: 240px;">
+            <h3>Cappuccino</h3>
+            <p class="price">$4.50</p>
+            <button onclick="purchase('Cappuccino')">Purchase</button>
+        </div>
+        <div class="menu-item">
+            <img src="latte.jpg" alt="latte" style="width: 210px; height: 240px;">
+            <h3>Latte</h3>
+            <p class="price">$4.00</p>
+            <button onclick="purchase('Latte')">Purchase</button>
+        </div>
+        <div class="menu-item">
+            <img src="moccha.jpg" alt="mocha" >
+            <h3>Mocha</h3>
+            <p class="price">$4.75</p>
+            <button onclick="purchase('Mocha')">Purchase</button>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <form onsubmit="submitForm(event)">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    &copy; 2025 Minimal Café. All Rights Reserved.
+</footer>
+
+<script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50);
+    });
+    // Purchase button click
+    function purchase(item) {
+        alert(`You selected ${item}. Purchase flow coming soon!`);
+    }
+    // Contact form submission
+    function submitForm(event) {
+        event.preventDefault();
+        alert('Thank you for your message! We will get back to you soon.');
+        event.target.reset();
+    }
+</script>
+
+</body>
+</html>
