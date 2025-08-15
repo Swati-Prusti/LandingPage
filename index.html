@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Minimal Café</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <div class="logo">Minimal Café</div>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<section id="home">
+    <h1>Welcome to Minimal Café</h1>
+    <p>Your cozy spot for the perfect cup of coffee.</p>
+</section>
+
+<section id="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <img src="americano.jpg" alt="americano">
+            <h3>Espresso</h3>
+            <p class="price">$3.00</p>
+            <button onclick="purchase('Espresso')">Purchase</button>
+        </div>
+        <div class="menu-item">
+            <img src="cappu.jpg" alt="Cappuccino" style="width: 230px; height: 240px;">
+            <h3>Cappuccino</h3>
+            <p class="price">$4.50</p>
+            <button onclick="purchase('Cappuccino')">Purchase</button>
+        </div>
+        <div class="menu-item">
+            <img src="latte.jpg" alt="latte" style="width: 210px; height: 240px;">
+            <h3>Latte</h3>
+            <p class="price">$4.00</p>
+            <button onclick="purchase('Latte')">Purchase</button>
+        </div>
+        <div class="menu-item">
+            <img src="moccha.jpg" alt="mocha">
+            <h3>Mocha</h3>
+            <p class="price">$4.75</p>
+            <button onclick="purchase('Mocha')">Purchase</button>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <form onsubmit="submitForm(event)">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    &copy; 2025 Minimal Café. All Rights Reserved.
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
